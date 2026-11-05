@@ -1,0 +1,2256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Campus Connect - Your MUBS student information and opportunities hub.">
+<title>Campus Connect | Digital Innovators</title>
+
+<style>
+:root {
+    --navy: #102A43;
+    --blue: #4A9AD6;
+    --sky: #EAF5FF;
+    --gold: #F4B942;
+    --ink: #243B53;
+    --muted: #627D98;
+    --paper: #F7FAFD;
+    --white: #FFFFFF;
+    --green: #16845B;
+    --border: #DCEAF5;
+    --font: "Segoe UI", Arial, sans-serif;
+}
+
+/* GLOBAL STYLES */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.modal::-webkit-scrollbar,
+.modal-body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+html, body, button, input, select, textarea,
+h1, h2, h3, h4, p, a, span, li, td, th {
+    font-family: var(--font);
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+/* HEADER AND NAVIGATION */
+
+header {
+    background: var(--navy);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 15px #102a4320;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    font-size: 1.15rem;
+    font-weight: 850;
+    letter-spacing: .5px;
+    white-space: nowrap;
+}
+
+.brand span {
+    color: var(--gold);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #EAF4FF;
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 650;
+    transition: .2s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    background: none;
+    border: 1px solid #ffffff50;
+    border-radius: 8px;
+    padding: 7px 11px;
+}
+
+/* HERO SECTION */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+    color: white;
+    min-height: 510px;
+    padding: 80px 24px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 45%;
+    background:
+        linear-gradient(
+            90deg,
+            var(--navy) 0%,
+            rgba(16,42,67,.55) 35%,
+            rgba(16,42,67,.1) 100%
+        ),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+    opacity: .9;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg,#102a4330,transparent 45%);
+    pointer-events: none;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.eyebrow {
+    color: #FFDB87;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .78rem;
+    font-weight: 850;
+}
+
+h1 {
+    font-size: clamp(2.6rem,6vw,4.8rem);
+    line-height: 1.08;
+    margin: 15px 0;
+    letter-spacing: -2px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #E5F1FB;
+    max-width: 620px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 9px;
+    padding: 12px 19px;
+    font-weight: 750;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.primary {
+    background: var(--gold);
+    color: #172B4D;
+}
+
+.secondary {
+    border: 1px solid #FFFFFF80;
+    color: white;
+    background: #FFFFFF12;
+}
+
+.hero-card {
+    background: #102A4380;
+    border: 1px solid #FFFFFF50;
+    border-radius: 20px;
+    padding: 27px;
+    backdrop-filter: blur(8px);
+    max-width: 370px;
+    justify-self: end;
+}
+
+.hero-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.hero-card h3 {
+    margin-bottom: 7px;
+    font-size: 1.2rem;
+}
+
+.hero-card p {
+    font-size: .94rem;
+}
+
+/* GENERAL SECTION STYLES */
+
+section.content-section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 65px 22px;
+}
+
+.section-head {
+    text-align: center;
+    max-width: 730px;
+    margin: 0 auto 34px;
+}
+
+.section-head h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+    font-size: 2rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -.5px;
+}
+
+.section-head h2::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 4px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        var(--blue) 50%,
+        var(--gold) 50%
+    );
+}
+
+.section-head p {
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 19px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--blue);
+    border-radius: 15px;
+    padding: 23px;
+    box-shadow: 0 5px 18px #102a4309;
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px #102a4315;
+}
+
+.card .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sky);
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 1.9rem;
+}
+
+.card h3 {
+    margin: 9px 0 5px;
+    color: var(--navy);
+}
+
+.card p {
+    color: var(--muted);
+    font-size: .93rem;
+}
+
+/* STUDENT ANNOUNCEMENTS */
+
+.search-area {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.search-area input,
+.search-area select {
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 9px;
+    padding: 13px 15px;
+    color: var(--ink);
+    outline: none;
+}
+
+.search-area input {
+    flex: 1;
+    min-width: 220px;
+}
+
+.search-area input:focus,
+.search-area select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px #4A9AD615;
+}
+
+.announcement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.announcement {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 17px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.announcement-info {
+    flex: 1;
+}
+
+.announcement-info h3 {
+    color: var(--navy);
+    font-size: 1rem;
+    margin: 4px 0;
+}
+
+.announcement-info p {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.category {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #2676B2;
+    background: var(--sky);
+    padding: 4px 9px;
+    border-radius: 20px;
+}
+
+.view-btn {
+    flex-shrink: 0;
+    background: var(--navy);
+    color: white;
+    border: 0;
+    padding: 10px 17px;
+    border-radius: 8px;
+    font-size: .85rem;
+    font-weight: 750;
+    transition: .2s;
+}
+
+.view-btn:hover {
+    background: var(--blue);
+}
+
+.empty-state {
+    display: none;
+    padding: 30px;
+    background: white;
+    text-align: center;
+    border-radius: 12px;
+    color: var(--muted);
+}
+
+/* ACADEMIC CORNER */
+
+.panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    border-radius: 15px;
+    padding: 24px;
+    margin-top: 18px;
+    box-shadow: 0 5px 18px #102a4309;
+}
+
+.panel h3 {
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+.link-list {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+}
+
+.academic-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: var(--sky);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--navy);
+    transition: .2s;
+}
+
+.academic-link:hover {
+    border-color: var(--gold);
+    background: #FFF9EA;
+}
+
+.academic-link span:last-child {
+    color: var(--blue);
+    font-size: 1.2rem;
+}
+
+.event-list {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 14px;
+}
+
+.event {
+    background: var(--sky);
+    border-radius: 11px;
+    padding: 17px;
+    border-left: 4px solid var(--gold);
+}
+
+.event h4 {
+    color: var(--navy);
+    margin-bottom: 5px;
+}
+
+.event p {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+/* OPPORTUNITIES */
+
+.opportunities-section {
+    background: linear-gradient(135deg,#EAF5FF 0%,#F7FAFD 55%,#FFF5DB 100%);
+    max-width: none !important;
+    padding: 70px 22px !important;
+}
+
+.opportunities-inner {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.opportunity-card {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-height: 210px;
+}
+
+.opportunity-card:hover {
+    border-top-color: var(--gold);
+    border-color: var(--blue);
+}
+
+.opportunity-card .open-label {
+    display: inline-block;
+    margin-top: 17px;
+    color: #2676B2;
+    font-weight: 800;
+    font-size: .88rem;
+}
+
+.opportunity-card:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+
+/* ABOUT CAMPUS CONNECT - THREE CARDS */
+
+#about .card {
+    min-height: 235px;
+    border-top: 3px solid var(--blue);
+    background: white;
+}
+
+#about .card:nth-child(2) {
+    border-top-color: var(--gold);
+}
+
+#about .card:nth-child(3) {
+    border-top-color: var(--blue);
+}
+
+#about .card .icon {
+    background: var(--sky);
+}
+
+#about .card:nth-child(2) .icon {
+    background: #FFF5DB;
+}
+
+/* CONTACT */
+
+.contact {
+    background: linear-gradient(120deg,#EAF5FF,#FFF5DB);
+    border-radius: 18px;
+    padding: 32px;
+    text-align: center;
+    border-top: 4px solid var(--gold);
+}
+
+.contact h2 {
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+
+/* DIGITAL INNOVATORS TEAM */
+
+.team-section {
+    background: linear-gradient(135deg,#102A43,#17466B);
+    max-width: none !important;
+    padding: 70px 22px !important;
+    color: white;
+}
+
+.team-inner {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.team-section .section-head h2 {
+    color: white;
+}
+
+.team-section .section-head p {
+    color: #C3D7E8;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.team-card {
+    background: #FFFFFF10;
+    border: 1px solid #FFFFFF25;
+    border-top: 3px solid var(--gold);
+    padding: 24px;
+    border-radius: 14px;
+    text-align: center;
+    transition: .2s;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    background: #FFFFFF18;
+}
+
+.team-card h3 {
+    color: white;
+    margin: 10px 0 3px;
+}
+
+.team-card p {
+    color: #C3D7E8;
+    font-size: .9rem;
+}
+
+.team-icon {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    background: #FFFFFF15;
+    border-radius: 50%;
+    font-size: 1.8rem;
+}
+
+/* FOOTER */
+
+footer {
+    background: #0A1D30;
+    color: #D9E8F5;
+    text-align: center;
+    padding: 28px 20px;
+    font-size: .9rem;
+}
+
+footer strong {
+    color: white;
+}
+
+/* POPUP MODALS */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(5,20,35,.78);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    position: relative;
+    background: white;
+    width: min(850px,100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-radius: 19px;
+    box-shadow: 0 25px 80px #0005;
+    animation: modalIn .25s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: linear-gradient(110deg,var(--navy),#205783);
+    color: white;
+    padding: 23px 65px 22px 28px;
+    border-radius: 19px 19px 0 0;
+}
+
+.modal-header .modal-category {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: .72rem;
+    font-weight: 800;
+}
+
+.modal-header h2 {
+    font-size: 1.55rem;
+    margin-top: 5px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 17px;
+    right: 18px;
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #FFFFFF60;
+    background: #FFFFFF15;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: #FFFFFF35;
+}
+
+.modal-body {
+    padding: 28px;
+    color: var(--ink);
+}
+
+.modal-body h3 {
+    color: var(--navy);
+    margin: 19px 0 8px;
+}
+
+.modal-body h3:first-child {
+    margin-top: 0;
+}
+
+.modal-body p {
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+.modal-body ul {
+    padding-left: 22px;
+    color: var(--muted);
+}
+
+.modal-body li {
+    margin-bottom: 9px;
+}
+
+.modal-item {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    padding: 16px;
+    border-radius: 11px;
+    margin: 12px 0;
+    background: #F8FBFE;
+}
+
+.modal-item:nth-of-type(even) {
+    border-left-color: var(--gold);
+}
+
+.modal-item h4 {
+    color: var(--navy);
+    margin-bottom: 5px;
+}
+
+.modal-item p {
+    font-size: .9rem;
+    margin: 0;
+}
+
+.modal-item a {
+    display: inline-block;
+    margin-top: 9px;
+    color: #2676B2;
+    font-weight: 750;
+    font-size: .88rem;
+    text-decoration: none;
+}
+
+.modal-item a:hover {
+    text-decoration: underline;
+}
+
+.modal-warning {
+    background: #FFF6DF;
+    border-left: 4px solid var(--gold);
+    padding: 14px;
+    border-radius: 7px;
+    color: #654B12;
+    font-size: .87rem;
+    margin-top: 18px;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width:800px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-card {
+        justify-self: start;
+        max-width: 430px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .event-list {
+        grid-template-columns: 1fr;
+    }
+
+    .nav {
+        align-items: flex-start;
+    }
+
+    nav {
+        gap: 13px;
+    }
+}
+
+@media(max-width:580px) {
+    .nav {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero::before {
+        inset: 0;
+        background:
+            linear-gradient(90deg,#102A43E8,#102A4380),
+            url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85")
+            center/cover;
+    }
+
+    .grid,
+    .two,
+    .team-grid,
+    .link-list {
+        grid-template-columns: 1fr;
+    }
+
+    .announcement {
+        align-items: flex-start;
+    }
+
+    .announcement .view-btn {
+        padding: 9px 11px;
+    }
+
+    .modal-overlay {
+        padding: 10px;
+    }
+
+    .modal {
+        max-height: 92vh;
+        border-radius: 14px;
+    }
+
+    .modal-header {
+        padding: 20px 58px 18px 19px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .modal-body {
+        padding: 21px;
+    }
+
+    section.content-section {
+        padding: 45px 18px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="nav">
+        <div class="brand">CAMPUS <span>CONNECT</span></div>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <nav id="mainNav" aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#announcements">Announcements</a>
+            <a href="#academics">Academic Corner</a>
+            <a href="#opportunities">Opportunities</a>
+            <a href="#about">About</a>
+            <a href="#team">Our Team</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+    <div class="hero-inner">
+
+        <div>
+            <div class="eyebrow">A Digital Innovators Project</div>
+
+            <h1>One Platform.<br>All Information.</h1>
+
+            <p>
+                Your university information hub. Discover academic updates,
+                important deadlines, scholarships, internships and
+                skills-development opportunities in one convenient place.
+            </p>
+
+            <div class="actions">
+                <a class="btn primary" href="#announcements">
+                    Explore Updates
+                </a>
+
+                <a class="btn secondary" href="#about">
+                    About Our Project
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <img
+                src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=85"
+                alt="University students studying and collaborating on campus">
+
+            <h3>Stay informed. Stay connected.</h3>
+
+            <p>
+                Bringing useful student information, academic resources
+                and opportunities closer to every student.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- EVERYTHING STUDENTS NEED -->
+
+<section class="content-section" id="services">
+
+    <div class="section-head">
+        <h2>Everything Students Need</h2>
+        <p>
+            Access important student services and information
+            from one convenient location.
+        </p>
+    </div>
+
+    <div class="grid">
+
+        <article class="card">
+            <div class="icon">📢</div>
+            <h3>Announcements</h3>
+            <p>
+                Stay informed about university communications
+                and important student notices.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🗓️</div>
+            <h3>Examination Information</h3>
+            <p>
+                Access examination timetables, preparation information
+                and academic schedules.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">📝</div>
+            <h3>Coursework & Assignments</h3>
+            <p>
+                Keep up with coursework requirements, submission
+                guidelines and academic deadlines.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">💼</div>
+            <h3>Internships</h3>
+            <p>
+                Discover professional placements and opportunities
+                to gain workplace experience.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🎓</div>
+            <h3>Scholarships</h3>
+            <p>
+                Explore educational funding opportunities
+                and scholarship programmes.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🏫</div>
+            <h3>University Information</h3>
+            <p>
+                Find useful academic resources, student guidance
+                and university information.
+            </p>
+        </article>
+
+    </div>
+</section>
+
+<!-- ANNOUNCEMENT CENTRE -->
+
+<section class="content-section" id="announcements">
+
+    <div class="section-head">
+        <h2>Student Announcement Centre</h2>
+        <p>
+            Find important academic information and student updates.
+            Select an announcement to read its details.
+        </p>
+    </div>
+
+    <div class="search-area">
+
+        <input
+            type="search"
+            id="noticeSearch"
+            placeholder="Search announcements..."
+            aria-label="Search announcements">
+
+        <select id="noticeFilter" aria-label="Filter announcements">
+            <option value="all">All Categories</option>
+            <option value="academic">Academic</option>
+            <option value="coursework">Coursework</option>
+            <option value="examination">Examinations</option>
+            <option value="welcome">Student Information</option>
+        </select>
+
+    </div>
+
+    <div class="announcement-list" id="announcementList">
+
+        <article class="announcement" data-category="coursework">
+            <div class="announcement-info">
+                <span class="category">Coursework</span>
+                <h3>Coursework and Assignment Guidelines</h3>
+                <p>
+                    Important information about preparing and submitting coursework.
+                </p>
+            </div>
+            <button class="view-btn" data-modal="coursework">
+                View Details →
+            </button>
+        </article>
+
+        <article class="announcement" data-category="examination">
+            <div class="announcement-info">
+                <span class="category">Examinations</span>
+                <h3>Examination Preparation and Timetable Information</h3>
+                <p>
+                    Guidance on examination preparation and checking official schedules.
+                </p>
+            </div>
+            <button class="view-btn" data-modal="examination">
+                View Details →
+            </button>
+        </article>
+
+        <article class="announcement" data-category="academic">
+            <div class="announcement-info">
+                <span class="category">Academic</span>
+                <h3>Academic Progress and Student Responsibilities</h3>
+                <p>
+                    Important academic practices for maintaining good academic progress.
+                </p>
+            </div>
+            <button class="view-btn" data-modal="academic">
+                View Details →
+            </button>
+        </article>
+
+        <article class="announcement" data-category="welcome">
+            <div class="announcement-info">
+                <span class="category">Student Information</span>
+                <h3>Welcome to Campus Connect</h3>
+                <p>
+                    Learn how to use the platform to access student information.
+                </p>
+            </div>
+            <button class="view-btn" data-modal="welcome">
+                View Details →
+            </button>
+        </article>
+
+    </div>
+
+    <div class="empty-state" id="emptyState">
+        No announcements match your search.
+        Try another keyword or category.
+    </div>
+
+</section>
+
+<!-- ACADEMIC CORNER -->
+
+<section class="content-section" id="academics">
+
+    <div class="section-head">
+        <h2>Academic Corner</h2>
+        <p>
+            Your collection of useful academic resources, study links
+            and important university events.
+        </p>
+    </div>
+
+    <div class="panel">
+
+        <h3>Useful Academic Links</h3>
+
+        <div class="link-list">
+
+            <a class="academic-link"
+               href="https://moodle.mubs.ac.ug/"
+               target="_blank" rel="noopener noreferrer">
+                <span>📚 Moodle Learning Platform</span>
+                <span>↗</span>
+            </a>
+
+            <a class="academic-link"
+               href="https://www.mubs.ac.ug/"
+               target="_blank" rel="noopener noreferrer">
+                <span>🏫 MUBS Official Website</span>
+                <span>↗</span>
+            </a>
+
+            <a class="academic-link"
+               href="https://www.mubs.ac.ug/"
+               target="_blank" rel="noopener noreferrer">
+                <span>📝 Examination Information</span>
+                <span>↗</span>
+            </a>
+
+            <a class="academic-link"
+               href="https://moodle.mubs.ac.ug/"
+               target="_blank" rel="noopener noreferrer">
+                <span>📖 Course Materials</span>
+                <span>↗</span>
+            </a>
+
+            <a class="academic-link"
+               href="https://www.mubs.ac.ug/"
+               target="_blank" rel="noopener noreferrer">
+                <span>📅 Academic Calendar</span>
+                <span>↗</span>
+            </a>
+
+            <a class="academic-link"
+               href="https://www.mubs.ac.ug/"
+               target="_blank" rel="noopener noreferrer">
+                <span>🎓 University Information</span>
+                <span>↗</span>
+            </a>
+
+        </div>
+
+        <p style="font-size:.82rem;color:var(--muted);margin-top:15px">
+            Official university links are provided for student reference.
+            Check with your department for specific examination
+            and academic resources.
+        </p>
+
+    </div>
+
+    <div class="panel">
+
+        <h3>Important Student Events</h3>
+
+        <div class="event-list">
+
+            <div class="event">
+                <h4>Academic Orientation</h4>
+                <p>
+                    Get familiar with academic procedures, learning
+                    resources and university expectations.
+                </p>
+            </div>
+
+            <div class="event">
+                <h4>Career Development Events</h4>
+                <p>
+                    Participate in career talks, employer engagement
+                    sessions and professional networking.
+                </p>
+            </div>
+
+            <div class="event">
+                <h4>Entrepreneurship Activities</h4>
+                <p>
+                    Explore business ideas, innovation, enterprise
+                    development and student entrepreneurship.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GO BEYOND THE CLASSROOM -->
+
+<section class="opportunities-section" id="opportunities">
+
+    <div class="opportunities-inner">
+
+        <div class="section-head">
+            <h2>Go Beyond the Classroom</h2>
+            <p>
+                Discover opportunities that help you build experience,
+                finance your education and develop skills for the future.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <article class="card opportunity-card"
+                     tabindex="0"
+                     role="button"
+                     data-modal="internships"
+                     aria-label="Explore internship opportunities">
+
+                <div class="icon">💼</div>
+
+                <h3>Internship Opportunities</h3>
+
+                <p>
+                    Gain practical experience, develop professional
+                    networks and prepare for the workplace.
+                </p>
+
+                <span class="open-label">Explore internships →</span>
+
+            </article>
+
+            <article class="card opportunity-card"
+                     tabindex="0"
+                     role="button"
+                     data-modal="scholarships"
+                     aria-label="Explore scholarship opportunities">
+
+                <div class="icon">🎓</div>
+
+                <h3>Scholarships & Funding</h3>
+
+                <p>
+                    Explore scholarship programmes and educational
+                    funding opportunities.
+                </p>
+
+                <span class="open-label">Explore scholarships →</span>
+
+            </article>
+
+            <article class="card opportunity-card"
+                     tabindex="0"
+                     role="button"
+                     data-modal="skills"
+                     aria-label="Explore skills development opportunities">
+
+                <div class="icon">🚀</div>
+
+                <h3>Skills Development</h3>
+
+                <p>
+                    Build digital, business, leadership and
+                    professional skills.
+                </p>
+
+                <span class="open-label">Explore training →</span>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT CAMPUS CONNECT: THREE CARDS -->
+
+<section class="content-section" id="about">
+
+    <div class="section-head">
+        <h2>About Campus Connect</h2>
+        <p>
+            Using digital innovation to make student information easier to access.
+        </p>
+    </div>
+
+    <div class="grid">
+
+        <article class="card">
+            <div class="icon">💡</div>
+            <h3>Our Idea</h3>
+            <p>
+                Campus Connect is a student-focused information platform
+                designed to bring important academic information,
+                university updates and career opportunities together
+                in one accessible location.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">💻</div>
+            <h3>Our Digital Skill</h3>
+            <p>
+                Website design and development. We use digital technology
+                to organise information and improve the way students
+                discover useful academic resources and opportunities.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🚀</div>
+            <h3>Our Expected Impact</h3>
+            <p>
+                We aim to save students time, improve access to information,
+                encourage academic organisation and connect students
+                to opportunities beyond the classroom.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- MEET THE DIGITAL INNOVATORS -->
+
+<section class="team-section" id="team">
+
+    <div class="team-inner">
+
+        <div class="section-head">
+            <h2>Meet the Digital Innovators</h2>
+            <p>
+                The team behind the Campus Connect initiative.
+            </p>
+        </div>
+
+        <div class="team-grid">
+
+            <div class="team-card">
+                <div class="team-icon">👩🏽‍💻</div>
+                <h3>Nanfuma Scovia</h3>
+                <p>Digital Innovators Team</p>
+                <p>0794100439</p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-icon">👩🏽‍💻</div>
+                <h3>Nagawa Queen Stecia</h3>
+                <p>Digital Innovators Team</p>
+                <p>0703616202</p>
+            </div>
+
+            <div class="team-card">
+                <div class="team-icon">👩🏽‍💻</div>
+                <h3>Akamumpa Blessing</h3>
+                <p>Digital Innovators Team</p>
+                <p>0700906046</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="content-section">
+
+    <div class="contact">
+
+        <h2>Stay Connected</h2>
+
+        <p>
+            Have a question or information to share?
+            Reach out to the Campus Connect team.
+        </p>
+
+        <p style="margin-top:12px;font-weight:700;color:var(--navy)">
+            Your information. Your opportunities. Your campus.
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <strong>CAMPUS CONNECT</strong><br>
+
+    Digital Innovators · One Platform, All Information!<br>
+
+    <span style="color:#C3D7E8;font-size:.82rem">
+        Empowering students through digital information and innovation.
+    </span>
+</footer>
+
+<!-- UNIVERSAL POPUP MODAL -->
+
+<div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+
+    <div class="modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalTitle">
+
+        <div class="modal-header">
+
+            <span class="modal-category" id="modalCategory">
+                Information
+            </span>
+
+            <h2 id="modalTitle">Details</h2>
+
+            <button class="modal-close"
+                    id="modalClose"
+                    aria-label="Close popup">
+                ×
+            </button>
+
+        </div>
+
+        <div class="modal-body" id="modalBody"></div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* MOBILE NAVIGATION */
+
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+menuToggle.addEventListener("click", () => {
+
+    const opened = mainNav.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", opened);
+
+});
+
+mainNav.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+
+    });
+
+});
+
+
+/* ANNOUNCEMENT SEARCH AND FILTER */
+
+const searchInput = document.getElementById("noticeSearch");
+const filterSelect = document.getElementById("noticeFilter");
+const announcements = document.querySelectorAll(".announcement");
+const emptyState = document.getElementById("emptyState");
+
+function filterAnnouncements() {
+
+    const search = searchInput.value.toLowerCase().trim();
+    const category = filterSelect.value;
+
+    let visible = 0;
+
+    announcements.forEach(item => {
+
+        const text = item.textContent.toLowerCase();
+        const itemCategory = item.dataset.category;
+
+        const matchesSearch = text.includes(search);
+        const matchesCategory =
+            category === "all" || itemCategory === category;
+
+        const show = matchesSearch && matchesCategory;
+
+        item.style.display = show ? "flex" : "none";
+
+        if (show) visible++;
+
+    });
+
+    emptyState.style.display = visible ? "none" : "block";
+
+}
+
+searchInput.addEventListener("input", filterAnnouncements);
+filterSelect.addEventListener("change", filterAnnouncements);
+
+
+/* MODAL CONTENT */
+
+const modalData = {
+
+    coursework: {
+        category: "Academic Notice",
+        title: "Coursework and Assignment Guidelines",
+
+        content: `
+            <h3>Important Coursework Information</h3>
+
+            <p>
+                Students are encouraged to take note of the following
+                coursework and assignment guidelines to maintain
+                good academic progress.
+            </p>
+
+            <div class="modal-item">
+                <h4>1. Understand Your Assignment</h4>
+                <p>
+                    Read the assignment instructions carefully.
+                    Identify the objectives, required format, expected
+                    length and assessment criteria.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>2. Observe Submission Requirements</h4>
+                <p>
+                    Follow the submission method specified by your lecturer.
+                    Where Moodle submission is required, upload your work
+                    through the appropriate course page.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>3. Academic Integrity</h4>
+                <p>
+                    Submit original work, acknowledge your sources
+                    and follow the university's academic integrity requirements.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>4. Plan Ahead</h4>
+                <p>
+                    Break large assignments into manageable tasks.
+                    Allow time for research, writing, editing and final submission.
+                </p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Important:</strong>
+                Always confirm your actual assignment deadlines
+                and submission requirements directly with your
+                course lecturer or official Moodle course page.
+            </div>
+        `
+    },
+
+    examination: {
+        category: "Examination Notice",
+        title: "Examination Preparation and Timetable Information",
+
+        content: `
+            <h3>Preparing for University Examinations</h3>
+
+            <p>
+                Students are encouraged to prepare adequately for
+                examinations and regularly check official university
+                communications for examination arrangements.
+            </p>
+
+            <div class="modal-item">
+                <h4>Examination Timetable</h4>
+                <p>
+                    Consult your department and official university
+                    communication channels for the approved examination
+                    timetable. Check your course codes, examination dates,
+                    times and venues carefully.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>Examination Requirements</h4>
+                <p>
+                    Make sure you understand the university's examination
+                    regulations and requirements. Prepare any required
+                    identification and permitted materials.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>Revision and Preparation</h4>
+                <p>
+                    Develop a revision timetable, review lecture notes,
+                    practise relevant questions and seek clarification
+                    from lecturers where necessary.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>Changes to Examination Arrangements</h4>
+                <p>
+                    Monitor authorised university communications
+                    for any changes to examination schedules or venues.
+                </p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Student reminder:</strong>
+                Do not rely on unofficial examination dates or forwarded
+                messages. Confirm all arrangements with your department.
+            </div>
+        `
+    },
+
+    academic: {
+        category: "Academic Information",
+        title: "Academic Progress and Student Responsibilities",
+
+        content: `
+            <h3>Building Strong Academic Performance</h3>
+
+            <p>
+                Successful university learning requires consistency,
+                responsibility and effective use of available
+                academic resources.
+            </p>
+
+            <div class="modal-item">
+                <h4>Attend Lectures</h4>
+                <p>
+                    Participate in scheduled lectures, tutorials and
+                    other academic activities. Keep up with course requirements.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>Use Learning Resources</h4>
+                <p>
+                    Make use of Moodle, recommended reading materials,
+                    library resources and lecturer guidance.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>Monitor Academic Progress</h4>
+                <p>
+                    Keep track of your coursework, assessment performance
+                    and academic requirements throughout the semester.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>Seek Academic Support</h4>
+                <p>
+                    Contact your lecturers, academic advisers or
+                    department when you need clarification or assistance.
+                </p>
+            </div>
+        `
+    },
+
+    welcome: {
+        category: "Student Information",
+        title: "Welcome to Campus Connect",
+
+        content: `
+            <h3>Your Student Information Hub</h3>
+
+            <p>
+                Welcome to Campus Connect, a digital information platform
+                developed by Digital Innovators to make important student
+                information easier to discover.
+            </p>
+
+            <div class="modal-item">
+                <h4>Academic Information</h4>
+                <p>
+                    Find academic guidance, coursework information,
+                    examination resources and useful university links.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>Career Opportunities</h4>
+                <p>
+                    Explore internships, scholarships, professional
+                    training and career development opportunities.
+                </p>
+            </div>
+
+            <div class="modal-item">
+                <h4>How to Use the Platform</h4>
+                <p>
+                    Browse the different sections, search announcements,
+                    select opportunity cards and open useful external
+                    academic links.
+                </p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Our commitment:</strong>
+                Campus Connect aims to make student information more
+                accessible. Always verify time-sensitive university
+                information with its authorised source.
+            </div>
+        `
+    },
+
+    internships: {
+        category: "Career Opportunities",
+        title: "Internship Opportunities in Uganda",
+
+        content: `
+            <h3>Build Your Professional Experience</h3>
+
+            <p>
+                Internships provide students with opportunities
+                to apply classroom knowledge, develop professional
+                skills and gain workplace experience.
+            </p>
+
+            <div class="modal-item">
+                <h4>1. National Social Security Fund (NSSF)</h4>
+                <p>
+                    Explore opportunities related to finance, business
+                    administration, human resources, information
+                    technology and customer service.
+                </p>
+                <a href="https://www.nssfug.org/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit NSSF Website ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>2. Office of the Auditor General Uganda</h4>
+                <p>
+                    Monitor this institution for opportunities in
+                    accounting, auditing, economics, finance and
+                    public administration.
+                </p>
+                <a href="https://www.oag.go.ug/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit Official Website ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>3. Uganda Revenue Authority (URA)</h4>
+                <p>
+                    Explore potential professional exposure in taxation,
+                    finance, customs, business administration, data
+                    and information technology.
+                </p>
+                <a href="https://www.ura.go.ug/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit URA Website ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>4. Uwezo Uganda</h4>
+                <p>
+                    Monitor opportunities and organisational activities
+                    relating to research, education, programme management
+                    and community development.
+                </p>
+                <a href="https://uwezouganda.org/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit Uwezo Uganda ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>5. CAPAIDS Uganda</h4>
+                <p>
+                    Explore potential placements and professional exposure
+                    in programme administration, community engagement
+                    and organisational support.
+                </p>
+                <a href="https://capaids.org/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit CAPAIDS ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>6. TATTU Group</h4>
+                <p>
+                    Monitor the organisation for potential opportunities
+                    in business, communications, marketing and related
+                    professional fields.
+                </p>
+                <a href="https://tattugroup.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit TATTU Group ↗
+                </a>
+            </div>
+
+            <h3>Before Applying</h3>
+
+            <ul>
+                <li>Prepare an updated CV.</li>
+                <li>Write a professional application letter.</li>
+                <li>Prepare your academic documents where required.</li>
+                <li>Check application requirements and closing dates.</li>
+                <li>Apply through official recruitment channels.</li>
+            </ul>
+
+            <div class="modal-warning">
+                These are organisations worth monitoring for placements
+                and career opportunities, not confirmed current vacancies.
+                Check their official websites for available openings.
+            </div>
+        `
+    },
+
+    scholarships: {
+        category: "Education Funding",
+        title: "Scholarships and Funding Opportunities",
+
+        content: `
+            <h3>Invest in Your Education</h3>
+
+            <p>
+                Scholarships can help students access quality education
+                and develop their academic and professional potential.
+            </p>
+
+            <div class="modal-item">
+                <h4>1. Mastercard Foundation Scholars Program</h4>
+                <p>
+                    Provides educational opportunities and support through
+                    participating partner universities. Ugandan applicants
+                    can monitor participating institutions for eligible
+                    programmes and application announcements.
+                </p>
+                <a href="https://mastercardfdn.org/"
+                   target="_blank" rel="noopener noreferrer">
+                    Mastercard Foundation ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>2. DAAD Scholarships</h4>
+                <p>
+                    The German Academic Exchange Service offers various
+                    scholarship programmes for international students
+                    and graduates, including opportunities for African applicants.
+                </p>
+                <a href="https://www.daad.de/en/"
+                   target="_blank" rel="noopener noreferrer">
+                    Explore DAAD Scholarships ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>3. Chevening Scholarships</h4>
+                <p>
+                    UK government scholarships supporting eligible
+                    students and professionals pursuing postgraduate
+                    study in the United Kingdom.
+                </p>
+                <a href="https://www.chevening.org/"
+                   target="_blank" rel="noopener noreferrer">
+                    Explore Chevening ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>4. Commonwealth Scholarships</h4>
+                <p>
+                    Scholarship programmes supporting eligible applicants
+                    from Commonwealth countries to pursue postgraduate study.
+                </p>
+                <a href="https://cscuk.fcdo.gov.uk/"
+                   target="_blank" rel="noopener noreferrer">
+                    Explore Commonwealth Scholarships ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>5. Türkiye Scholarships</h4>
+                <p>
+                    Government-funded scholarship programmes for eligible
+                    international students seeking higher education in Türkiye.
+                </p>
+                <a href="https://www.turkiyeburslari.gov.tr/"
+                   target="_blank" rel="noopener noreferrer">
+                    Explore Türkiye Scholarships ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>6. Mastercard Foundation at Makerere University</h4>
+                <p>
+                    Monitor Makerere University for programme-specific
+                    announcements, eligibility requirements and
+                    scholarship application opportunities.
+                </p>
+                <a href="https://www.mak.ac.ug/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit Makerere University ↗
+                </a>
+            </div>
+
+            <h3>Prepare Your Application</h3>
+
+            <ul>
+                <li>Academic transcripts and certificates.</li>
+                <li>A well-prepared CV.</li>
+                <li>Personal statement or motivation letter.</li>
+                <li>Recommendation letters where required.</li>
+                <li>Valid identification and programme-specific documents.</li>
+            </ul>
+
+            <div class="modal-warning">
+                Scholarship eligibility, application periods and funding
+                conditions vary. Always consult the official scholarship
+                provider before applying.
+            </div>
+        `
+    },
+
+    skills: {
+        category: "Professional Development",
+        title: "Skills Development and Professional Training",
+
+        content: `
+            <h3>Develop Skills That Set You Apart</h3>
+
+            <p>
+                Build practical skills that complement your university
+                education and prepare you for employment, entrepreneurship
+                and professional growth.
+            </p>
+
+            <div class="modal-item">
+                <h4>1. Cisco Networking Academy</h4>
+                <p>
+                    Explore training in networking, cybersecurity,
+                    programming, digital literacy and IT fundamentals.
+                </p>
+                <a href="https://www.netacad.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    Explore Cisco Networking Academy ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>2. NITA-U Digital Skills Programmes</h4>
+                <p>
+                    Monitor the National Information Technology
+                    Authority-Uganda for digital skills initiatives,
+                    technology awareness programmes and relevant training.
+                </p>
+                <a href="https://www.nita.go.ug/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit NITA-U ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>3. Fundi Bots</h4>
+                <p>
+                    Explore practical STEM, robotics, innovation
+                    and technology-related learning activities.
+                </p>
+                <a href="https://fundibots.org/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit Fundi Bots ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>4. Enterprise Uganda</h4>
+                <p>
+                    Explore entrepreneurship development, business
+                    management, enterprise growth and business
+                    advisory initiatives.
+                </p>
+                <a href="https://www.enterprise.co.ug/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit Enterprise Uganda ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>5. Google Digital Skills</h4>
+                <p>
+                    Explore digital marketing, online business,
+                    digital productivity and professional learning resources.
+                </p>
+                <a href="https://grow.google/"
+                   target="_blank" rel="noopener noreferrer">
+                    Explore Google Learning ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>6. Business Ideation and Innovation</h4>
+                <p>
+                    Develop business ideas, identify market opportunities,
+                    understand customers, create business models
+                    and learn how to pitch ideas.
+                </p>
+                <a href="https://www.enterprise.co.ug/"
+                   target="_blank" rel="noopener noreferrer">
+                    Explore Enterprise Uganda ↗
+                </a>
+            </div>
+
+            <div class="modal-item">
+                <h4>7. Professional Business Skills</h4>
+                <p>
+                    Build competencies in financial literacy,
+                    project management, leadership, communication,
+                    Excel, data analysis and workplace readiness.
+                </p>
+                <a href="https://www.coursera.org/"
+                   target="_blank" rel="noopener noreferrer">
+                    Explore Professional Courses ↗
+                </a>
+            </div>
+
+            <h3>Skills Worth Developing</h3>
+
+            <ul>
+                <li>Digital literacy and computer applications.</li>
+                <li>Data analysis and Microsoft Excel.</li>
+                <li>Entrepreneurship and business development.</li>
+                <li>Financial literacy and business planning.</li>
+                <li>Leadership, teamwork and communication.</li>
+                <li>Cybersecurity and technology skills.</li>
+            </ul>
+
+            <div class="modal-warning">
+                These organisations and programmes are learning resources
+                and training providers to monitor. Specific upcoming
+                workshop dates and available places must be confirmed
+                with each provider.
+            </div>
+        `
+    }
+
+};
+
+
+/* OPEN AND CLOSE MODALS */
+
+const overlay = document.getElementById("modalOverlay");
+const modalTitle = document.getElementById("modalTitle");
+const modalCategory = document.getElementById("modalCategory");
+const modalBody = document.getElementById("modalBody");
+const modalClose = document.getElementById("modalClose");
+
+let previousFocus = null;
+
+function openModal(key) {
+
+    const data = modalData[key];
+
+    if (!data) return;
+
+    previousFocus = document.activeElement;
+
+    modalCategory.textContent = data.category;
+    modalTitle.textContent = data.title;
+    modalBody.innerHTML = data.content;
+
+    overlay.classList.add("active");
+    overlay.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add("modal-open");
+
+    const modal = overlay.querySelector(".modal");
+    modal.scrollTop = 0;
+
+    modalClose.focus();
+
+}
+
+function closeModal() {
+
+    overlay.classList.remove("active");
+    overlay.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("modal-open");
+
+    if (previousFocus && previousFocus.focus) {
+        previousFocus.focus();
+    }
+
+}
+
+
+/* CONNECT ALL MODAL BUTTONS AND OPPORTUNITY CARDS */
+
+document.querySelectorAll("[data-modal]").forEach(element => {
+
+    element.addEventListener("click", () => {
+        openModal(element.dataset.modal);
+    });
+
+    if (element.classList.contains("opportunity-card")) {
+
+        element.addEventListener("keydown", event => {
+
+            if (event.key === "Enter" || event.key === " ") {
+
+                event.preventDefault();
+                openModal(element.dataset.modal);
+
+            }
+
+        });
+
+    }
+
+});
+
+
+/* CLOSE BUTTON */
+
+modalClose.addEventListener("click", closeModal);
+
+
+/* CLICK OUTSIDE TO CLOSE */
+
+overlay.addEventListener("click", event => {
+
+    if (event.target === overlay) {
+        closeModal();
+    }
+
+});
+
+
+/* ESCAPE KEY */
+
+document.addEventListener("keydown", event => {
+
+    if (
+        event.key === "Escape" &&
+        overlay.classList.contains("active")
+    ) {
+        closeModal();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
